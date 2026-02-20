@@ -22,10 +22,10 @@ jobs:
       run: go mod download
 
     - name: Build
-      run: go build -v ./cmd/loglint
+      run: go build -v -o loglint ./cmd/loglint
 
     - name: Test
       run: go test -v ./pkg/analyzer/...
 
     - name: Run linter on testdata
-      run: ./loglint ./testdata/...
+      run: ./loglint pkg/analyzer/testdata/testdata.go
